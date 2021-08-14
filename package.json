@@ -1,15 +1,54 @@
 {
   "name": "crypto-crud",
+  "description": "A simple CRUD to view crypto currencies (technical test)",
+  "license": "MIT",
+  "author": "Mario Antonio Polo Daza <mariopolo2805@gmail.com>",
+  "engines": {
+    "node": ">=12"
+  },
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "clean": "rimraf dist && rimraf coverage",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "npm run clean && ng build --prod",
     "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "test:dev": "run-p test:coverage coverage",
+    "test:ci": "ng test --sourceMap=false --browsers=ChromeHeadlessNoSandbox --codeCoverage=true --watch=false",
+    "test:coverage": "npm run clean && ng test --codeCoverage=true --browsers=Chrome",
+    "coverage": "http-server -c-1 -p 9875 ./coverage",
+    "lint": "eslint --color -c .eslintrc.js --ext .ts ./src/app",
+    "lint:fix": "eslint --color --fix -c .eslintrc.js --ext .ts ./src/app",
+    "stylelint": "stylelint 'src/**/*.scss' --syntax scss -f verbose",
+    "stylelint:fix": "stylelint 'src/**/*.scss' --syntax scss -f verbose --fix",
+    "snapshot": "npm run build && node ./scripts/snapshot.js",
+    "version:snapshot": "npm run version && git add package.json package-lock.json src/version.js CHANGELOG.md && git commit -m 'snapshot: update version' -n",
+    "release": "node ./scripts/release.js",
+    "version:release": "npm run version && npm run changelog && git add src/version.js CHANGELOG.md && git commit -m 'release: update version' -n",
+    "changelog": "node ./scripts/changelog.js",
+    "changelog:commit": "git add CHANGELOG.md src/version.js && git commit -m 'release: update CHANGELOG.md'",
+    "version": "node ./scripts/version.js"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint --fix .eslintrc.js --ext .ts ./src/app"
+    ],
+    "src/**/*.scss": [
+      "stylelint --syntax=scss -f verbose --fix"
+    ]
   },
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "TODO"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "README.md",
+    "package.json"
+  ],
   "dependencies": {
     "@angular/animations": "~11.2.11",
     "@angular/common": "~11.2.11",
@@ -25,11 +64,29 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.10",
+    "@angular-eslint/builder": "0.4.0-beta.2",
+    "@angular-eslint/eslint-plugin": "0.4.0-beta.2",
+    "@angular-eslint/eslint-plugin-template": "0.4.0-beta.2",
+    "@angular-eslint/schematics": "^0.4.0-beta.2",
+    "@angular-eslint/template-parser": "0.4.0-beta.2",
     "@angular/cli": "~11.2.10",
     "@angular/compiler-cli": "~11.2.11",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-angular": "^12.1.1",
+    "@commitlint/config-conventional": "^13.1.0",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/eslint-plugin-tslint": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
     "codelyzer": "^6.0.0",
+    "eslint": "^7.6.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsdoc": "^30.6.2",
+    "eslint-plugin-prefer-arrow": "^1.2.2",
+    "generate-changelog": "^1.8.0",
+    "http-server": "^13.0.0",
+    "husky": "^7.0.1",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.1.0",
@@ -37,7 +94,17 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "protractor": "~7.0.0",
+    "lint-staged": "^10.2.2",
+    "npm-run-all": "^4.1.5",
+    "shelljs": "^0.8.3",
+    "stylelint": "^13.13.1",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-config-standard-scss": "^1.1.0",
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.17.2",
+    "stylelint-selector-bem-pattern": "^2.1.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.1.5"

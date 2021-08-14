@@ -10,7 +10,7 @@ Node `v14.15.1` and NPM `6.14.8` on MacOS BigSur `11.4`.
 - StyleLint
 - LintStaged
 - CommitLint
-- Changelog  Generator
+- Changelog Generator
 - Version Expose
 
 ## Stack
