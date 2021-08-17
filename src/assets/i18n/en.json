@@ -1,5 +1,8 @@
 {
-  "HOME": {
-    "TITLE": "CRYPTO APP"
+  "CRYPTO": {
+    "TITLE": "CRYPTO APP",
+    "SECTIONS": "Sections",
+    "HOME": "Home",
+    "LIST": "List"
   }
 }

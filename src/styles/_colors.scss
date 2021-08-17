@@ -1,0 +1,12 @@
+
+@import "~@angular/material/theming";
+@include mat-core();
+
+$crypto-primary-palette: mat-palette($mat-blue-grey);
+$crypto-accent-palette: mat-palette($mat-orange);
+$crypto-warn-palette: mat-palette($mat-red);
+
+$crypto-primary-color: mat-color($crypto-primary-palette);
+$crypto-primary-light-color: mat-color($crypto-primary-palette, 50);
+$crypto-accent-color: mat-color($crypto-accent-palette);
+$crypto-warn-color: mat-color($crypto-warn-palette);

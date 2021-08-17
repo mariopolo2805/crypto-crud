@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'crypto-layout',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
-
-  constructor() { }
+  constructor(private translateService: TranslateService) { }
 
   ngOnInit(): void {
+  }
+
+  toggleLanguage(language: string): void {
+    this.translateService.use(language);
   }
 
 }

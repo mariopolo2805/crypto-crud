@@ -10,8 +10,6 @@ Node `v14.15.1` and NPM `6.14.8` on MacOS BigSur `11.4`.
 - StyleLint
 - LintStaged
 - CommitLint
-- Changelog Generator
-- Version Expose
 
 ## Stack
 - Angular (Typescript)
@@ -20,3 +18,10 @@ Node `v14.15.1` and NPM `6.14.8` on MacOS BigSur `11.4`.
 - Angular Material (web components)
 - Jasmine (unit testing)
 - Cypress (E2E testing)
+
+## Extras
+- GitFlow & Version Tags
+- Changelog Generator
+- Version Expose
+- Normalize CSS
+- i18n

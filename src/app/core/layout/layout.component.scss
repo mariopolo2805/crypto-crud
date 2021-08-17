@@ -1,1 +1,35 @@
-//
+@import "colors";
+
+.sidenav {
+  padding: 20px;
+
+  .menu-options-links-title {
+    padding-bottom: 6px;
+
+    border-bottom: 2px solid $crypto-primary-color;
+  }
+
+  .menu-options-links-option {
+    margin: 10px 0;
+
+    color: $crypto-primary-color;
+
+    text-decoration-color: $crypto-accent-color;
+  }
+
+  .spacer {
+    flex-grow: 1;
+  }
+
+  .i18n {
+    display: flex;
+    justify-content: center;
+
+    .i18n__flag {
+      height: 14px;
+      margin: 0 10px;
+
+      cursor: pointer;
+    }
+  }
+}
