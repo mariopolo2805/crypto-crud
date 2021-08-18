@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'https://api.coincap.io/v2',
+  // apiUrl: 'https://rickandmortyapi.com/api/character',
 };
 
 /*

@@ -1,3 +1,15 @@
-<p>
-  list works!
-</p>
+<crypto-loader *ngIf="isLoading"></crypto-loader>
+
+<div *ngIf="!isLoading">
+  <h2 class="crypto-title">Crypto List</h2>
+
+  <ul class="crypto-list">
+    <li class="crypto-list__item" *ngFor="let crypto of cryptoList">
+      <div class="crypto-list__item-coin">
+        <strong>{{crypto.symbol}}</strong>
+        <p>{{crypto.name}}</p>
+        <span>{{crypto.price | currency }}</span>
+      </div>
+    </li>
+  </ul>
+</div>

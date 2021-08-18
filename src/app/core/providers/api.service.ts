@@ -15,7 +15,9 @@ export class ApiService {
   private readonly headers: HttpHeaders;
 
   constructor(private readonly http: HttpClient) {
-    this.headers = new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json');
+    this.headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Accept', 'application/json');
   }
 
   private formatErrors(error: unknown): Observable<never> {
@@ -31,27 +33,27 @@ export class ApiService {
     return queryParamsStr ? `?${queryParamsStr}` : '';
   }
 
-  get(path: string, params: HttpParams = new HttpParams(), apiUrl ?: string): Observable<unknown> {
+  get(path: string, params: HttpParams = new HttpParams(), apiUrl ?: string): Observable<any> {
     const url = apiUrl ? `${apiUrl}${path}` : `${environment.apiUrl}${path}`;
     return this.http.get(url, { params, headers: this.headers }).pipe(catchError(this.formatErrors));
   }
 
-  put(path: string, body: unknown = { }, apiUrl ?: string): Observable<unknown> {
+  put(path: string, body: unknown = { }, apiUrl ?: string): Observable<any> {
     const url = apiUrl ? `${apiUrl}${path}` : `${environment.apiUrl}${path}`;
     return this.http.put(url, JSON.stringify(body), { headers: this.headers }).pipe(catchError(this.formatErrors));
   }
 
-  patch(path: string, body: unknown = { }, apiUrl ?: string): Observable<unknown> {
+  patch(path: string, body: unknown = { }, apiUrl ?: string): Observable<any> {
     const url = apiUrl ? `${apiUrl}${path}` : `${environment.apiUrl}${path}`;
     return this.http.patch(url, JSON.stringify(body), { headers: this.headers }).pipe(catchError(this.formatErrors));
   }
 
-  post(path: string, body: unknown = { }, apiUrl ?: string): Observable<unknown> {
+  post(path: string, body: unknown = { }, apiUrl ?: string): Observable<any> {
     const url = apiUrl ? `${apiUrl}${path}` : `${environment.apiUrl}${path}`;
     return this.http.post(url, JSON.stringify(body), { headers: this.headers }).pipe(catchError(this.formatErrors));
   }
 
-  delete(path: string, body: unknown = { }, apiUrl ?: string): Observable<unknown> {
+  delete(path: string, body: unknown = { }, apiUrl ?: string): Observable<any> {
     const url = apiUrl ? `${apiUrl}${path}` : `${environment.apiUrl}${path}`;
     return this.http.request('delete', url, { body, headers: this.headers }).pipe(catchError(this.formatErrors));
   }

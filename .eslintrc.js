@@ -268,22 +268,7 @@ module.exports = {
             "position": "before"
           },
           {
-            "pattern": "primeng/**",
-            "group": "external",
-            "position": "before"
-          },
-          {
-            "pattern": "ftcomun/**",
-            "group": "external",
-            "position": "after"
-          },
-          {
             "pattern": "@core/**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "@modules/**",
             "group": "internal",
             "position": "before"
           },

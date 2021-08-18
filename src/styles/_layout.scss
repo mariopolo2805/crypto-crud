@@ -24,11 +24,11 @@ body {
   .main > * {
     position: relative;
 
+    width: 100%;
     margin: 0 auto;
   }
 
   crypto-not-found {
-    width: 100%;
     max-width: initial !important; /* stylelint-disable-line declaration-no-important */
   }
 }

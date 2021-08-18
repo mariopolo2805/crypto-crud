@@ -2,12 +2,18 @@
 @import "~@angular/material/theming";
 @include mat-core();
 
+/* Material Palettes */
 $crypto-primary-palette: mat-palette($mat-blue-grey);
 $crypto-accent-palette: mat-palette($mat-orange);
 $crypto-warn-palette: mat-palette($mat-red);
 
+/* Material Colors */
 $crypto-primary-color: mat-color($crypto-primary-palette);
 $crypto-primary-light-2-color: mat-color($crypto-primary-palette, 200);
 $crypto-primary-light-color: mat-color($crypto-primary-palette, 50);
 $crypto-accent-color: mat-color($crypto-accent-palette);
 $crypto-warn-color: mat-color($crypto-warn-palette);
+
+/* Custom Colors */
+$crypto-golden-color: #EEB501;
+$crypto-silver-color: #C0C0C0;

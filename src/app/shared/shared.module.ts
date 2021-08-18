@@ -9,6 +9,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TranslateModule } from '@ngx-translate/core';
 import { CryptoLoaderComponent } from './components/loader/loader.component';
+import { CryptoService } from './services/crypto.service';
 
 const matModules = [
   MatProgressSpinnerModule,
@@ -42,6 +43,9 @@ const ngModules = [
     ...ngModules,
     ...matModules,
     ...cryptoComponents,
+  ],
+  providers: [
+    CryptoService,
   ],
 })
 export class SharedModule { }

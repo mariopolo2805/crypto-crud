@@ -1,15 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { CryptoItemModel } from '@shared/models/crypto.model';
+import { CryptoService } from '@shared/services/crypto.service';
 
 @Component({
   selector: 'crypto-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy {
+  private subscriptions: Subscription[] = [];
 
-  constructor() { }
+  isLoading = false;
+  cryptoList: CryptoItemModel[] = [];
+
+  constructor(private cryptoService: CryptoService) { }
 
   ngOnInit(): void {
+    this.getCryptoList();
   }
 
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription: Subscription) => subscription?.unsubscribe());
+  }
+
+  getCryptoList(): void {
+    this.isLoading = true;
+    this.subscriptions.push(this.cryptoService.getCryptoList().subscribe(
+      (data: CryptoItemModel[]) => {
+        this.cryptoList = data;
+        this.isLoading = false;
+      },
+      (error: any) => {
+        // eslint-disable-next-line no-console
+        console.error(error);
+        this.isLoading = false;
+      }
+    ));
+  }
 }
