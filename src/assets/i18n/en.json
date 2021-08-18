@@ -4,5 +4,12 @@
     "SECTIONS": "Sections",
     "HOME": "Home",
     "LIST": "List"
+  },
+  "HOME": {
+    "WELCOME": "Welcome to Crypto App!",
+    "BY": "by "
+  },
+  "404": {
+    "MESSAGE": "¡Uops! Page not found 😵"
   }
 }

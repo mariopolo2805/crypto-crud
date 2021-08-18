@@ -4,5 +4,12 @@
     "SECTIONS": "Secciones",
     "HOME": "Inicio",
     "LIST": "Listado"
+  },
+  "HOME": {
+    "WELCOME": "¡Bienvenido a Crypto App!",
+    "BY": "por "
+  },
+  "404": {
+    "MESSAGE": "¡Vaya! Esta página no existe 😵"
   }
 }

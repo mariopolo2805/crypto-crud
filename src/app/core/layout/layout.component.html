@@ -4,11 +4,11 @@
 
 <mat-drawer-container class="layout-container" autosize>
   <mat-drawer #drawer class="sidenav" mode="side">
-    <h4 class="menu-options-links-title">{{ 'CRYPTO.SECTIONS' | translate }}</h4>
+    <h4 class="menu-options-links-title">{{ "CRYPTO.SECTIONS" | translate }}</h4>
     <mat-divider></mat-divider>
-    <a class="menu-options-links-option" routerLink="/">{{ 'CRYPTO.HOME' | translate }}</a>
+    <a class="menu-options-links-option" routerLink="/">{{ "CRYPTO.HOME" | translate }}</a>
     <mat-divider></mat-divider>
-    <a class="menu-options-links-option" routerLink="/list">{{ 'CRYPTO.LIST' | translate }}</a>
+    <a class="menu-options-links-option" routerLink="/list">{{ "CRYPTO.LIST" | translate }}</a>
     <mat-divider></mat-divider>
     <div class="spacer"></div>
     <div class="i18n">
@@ -26,5 +26,7 @@
     </mat-toolbar>
   </div>
 
-  <router-outlet class="layout-container__router"></router-outlet>
+  <main class="main">
+    <router-outlet class="layout-container__router"></router-outlet>
+  </main>
 </mat-drawer-container>

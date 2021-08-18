@@ -4,8 +4,7 @@
 body {
   .layout-container__router + * {
     flex: 1 0 auto;
-
-    background-color: $crypto-primary-light-color;
+    max-width: 960px; // TODO:
   }
 
   .mat-drawer-container {
@@ -20,5 +19,16 @@ body {
       display: flex;
       flex-direction: column;
     }
+  }
+
+  .main > * {
+    position: relative;
+
+    margin: 0 auto;
+  }
+
+  crypto-not-found {
+    width: 100%;
+    max-width: initial !important; /* stylelint-disable-line declaration-no-important */
   }
 }
