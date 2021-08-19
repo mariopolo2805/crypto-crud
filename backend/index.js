@@ -41,6 +41,24 @@ app.get('/detail/:id', (req, res) => {
     });
 });
 
+app.get('/detail/:id/history', (req, res) => {
+  fetch(`https://api.coincap.io/v2/assets/${req.params.id}/history?interval=d1`)
+    .then(response => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        res.status(response.status).send(response);
+      }
+    })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).send(err);
+    });
+});
+
 app.get('/image/:id', (req, res) => {
   fetch(`https://pixabay.com/api/?key=22987106-f7780ca8d89518a6edfbf1c8a&q=${req.params.id}`)
     .then(response => {

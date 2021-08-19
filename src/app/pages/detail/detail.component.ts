@@ -17,42 +17,12 @@ export class DetailComponent implements OnInit, OnDestroy {
   cryptoData!: CryptoDetailModel | null;
   cryptoImage!: string | null;
 
-  hideHistoric = false;
+  hideHistory = false;
   view: [number, number] = [600, 400];
   colorScheme = {
     domain: ['#EEB501'],
   };
-  multi = [
-    {
-      name: 'Germany',
-      series: [
-        {
-          name: '1990',
-          value: 62000000,
-        },
-        {
-          name: '2010',
-          value: 73000000,
-        },
-        {
-          name: '2011',
-          value: 89400000,
-        },
-        {
-          name: '2012',
-          value: 92000000,
-        },
-        {
-          name: '2013',
-          value: 95000000,
-        },
-        {
-          name: '2014',
-          value: 102400000,
-        },
-      ],
-    },
-  ];
+  dataset: never[] | null = [];
 
   constructor(private activatedRoute: ActivatedRoute, private cryptoService: CryptoService) { }
 
@@ -75,17 +45,20 @@ export class DetailComponent implements OnInit, OnDestroy {
     this.subscriptions.push(forkJoin([
       this.cryptoService.getCryptoDetail(id),
       this.cryptoService.getCryptoImage(id),
+      this.cryptoService.getCryptoDetailHistory(id),
       this.cryptoService.getUsdEurChangeRatio(),
-    ]).subscribe(([cryptoDetailModel, image, usdEurChangeRatio]) => {
+    ]).subscribe(([cryptoDetailModel, image, dataset, usdEurChangeRatio]) => {
       this.cryptoData = cryptoDetailModel;
       this.cryptoData.priceEur = `${parseFloat(this.cryptoData.price) / usdEurChangeRatio}`;
       this.cryptoImage = image;
+      this.dataset = dataset as unknown as never[];
       this.isLoading = false;
     },
     () => {
       this.isLoading = false;
       this.cryptoData = null;
       this.cryptoImage = null;
+      this.dataset = null;
     }));
   }
 }

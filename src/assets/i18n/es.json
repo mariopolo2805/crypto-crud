@@ -6,7 +6,9 @@
     "LIST": "Listado"
   },
   "GENERAL": {
-    "ERROR-DATA": "Hubo un error al recuperar los datos, recargue la página más tarde"
+    "ERROR-DATA": "Hubo un error al recuperar los datos, recargue la página más tarde",
+    "HIDE": "Ocultar",
+    "SHOW": "Ver"
   },
   "HOME": {
     "WELCOME": "¡Bienvenido a Crypto App!",
@@ -19,6 +21,11 @@
     "TITLE": "Listado de Criptomonedas"
   },
   "DETAIL": {
-    "TITLE": "Detalle de Criptomoneda"
+    "TITLE": "Detalle de Criptomoneda",
+    "PRICE": "Precio",
+    "MARKETCAP": "Capitalización de mercado",
+    "CHANGEPERCENT": "Porcentaje de cambio",
+    "HISTORY": "histórico",
+    "TIME": "Tiempo"
   }
 }

@@ -24,6 +24,26 @@ export interface CryptoItemApiResponse {
   vwap24Hr: string | null;
 }
 
+export interface CryptoDetailHistoryApiResponse {
+  data: CryptoItemDetailHistoryApiResponse[];
+  timestamp: number;
+}
+
+export interface CryptoItemDetailHistoryApiResponse {
+  priceUsd: string;
+  time: number;
+}
+
+export interface CryptoHistoryDataset {
+  name: string;
+  series: CryptoHistoryDatasetData[];
+}
+
+export interface CryptoHistoryDatasetData {
+  name: string;
+  value: number;
+}
+
 export interface CryptoImageApiResponse {
   hits: { webformatURL: string }[];
 }

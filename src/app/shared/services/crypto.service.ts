@@ -4,9 +4,13 @@ import { map } from 'rxjs/internal/operators/map';
 import { ApiService } from '@core/providers/api.service';
 import {
   CryptoDetailApiResponse,
+  CryptoDetailHistoryApiResponse,
   CryptoDetailModel,
+  CryptoHistoryDataset,
+  CryptoHistoryDatasetData,
   CryptoImageApiResponse,
   CryptoItemApiResponse,
+  CryptoItemDetailHistoryApiResponse,
   CryptoItemListApiResponse,
   CryptoItemModel,
   CryptoUsdEurChangeRatioApiResponse,
@@ -44,13 +48,28 @@ export class CryptoService {
     ));
   }
 
+  getCryptoDetailHistory(id: string): Observable<CryptoHistoryDataset[]> {
+    return this.apiService.get(`/detail/${id}/history`).pipe(map((response: CryptoDetailHistoryApiResponse) => {
+      const dataset: CryptoHistoryDataset = {
+        name: id,
+        series: response.data.map((historyItem: CryptoItemDetailHistoryApiResponse) =>
+          ({
+            name: new Date(historyItem.time).toLocaleDateString(),
+            value: parseFloat(historyItem.priceUsd),
+          }) as CryptoHistoryDatasetData
+        ),
+      };
+      return [dataset];
+    }
+    ));
+  }
+
   getCryptoImage(id: string): Observable<string> {
     return this.apiService.get(`/image/${id}`).pipe(map((response: CryptoImageApiResponse) =>
       response?.hits[Math.floor(Math.random() * response.hits.length)]?.webformatURL
     ));
   }
 
-  // usd-eur-change
   getUsdEurChangeRatio(): Observable<number> {
     return this.apiService.get('/usd-eur-change').pipe(map((response: CryptoUsdEurChangeRatioApiResponse) =>
       response?.rates?.USD

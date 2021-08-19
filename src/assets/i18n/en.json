@@ -6,7 +6,9 @@
     "LIST": "List"
   },
   "GENERAL": {
-    "ERROR-DATA": "An error happened when recover data, reload window later"
+    "ERROR-DATA": "An error happened when recover data, reload window later",
+    "HIDE": "Hide",
+    "SHOW": "Show"
   },
   "HOME": {
     "WELCOME": "Welcome to Crypto App!",
@@ -19,6 +21,11 @@
     "TITLE": "Crypto List"
   },
   "DETAIL": {
-    "TITLE": "Crypto Detail"
+    "TITLE": "Crypto Detail",
+    "PRICE": "Price",
+    "MARKETCAP": "Market Capitalization",
+    "CHANGEPERCENT": "Change Percent",
+    "HISTORY": "history",
+    "TIME": "Time"
   }
 }
