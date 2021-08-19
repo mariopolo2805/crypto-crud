@@ -26,7 +26,11 @@ Node `v14.15.1` and NPM `6.14.8` on MacOS BigSur `11.4`.
 - Normalize CSS
 - i18n
 
-#### Disclaimer
+#### Backend
 
-To retrieve data from [API](https://docs.coincap.io/) is mandatory to use Chrome plugin because of CORS errors at localhost:
- - [CORS plugin](https://mybrowseraddon.com/access-control-allow-origin.html)
+To retrieve data from APIs is mandatory to run Express Node Server in `/backend` folder at `localhost:3000`.
+- Open other shell
+- `cd backend`
+- `npm start`
+
+This server avoid CORS problems in Frontend app.

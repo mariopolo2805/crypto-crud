@@ -11,5 +11,11 @@
   },
   "404": {
     "MESSAGE": "¡Uops! Page not found 😵"
+  },
+  "LIST": {
+    "TITLE": "Crypto List"
+  },
+  "DETAIL": {
+    "TITLE": "Crypto Detail"
   }
 }

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '@shared/shared.module';
 import { ListComponent } from './list.component';
 import { ListRoutingModule } from './list.routing';
@@ -9,6 +10,7 @@ import { ListRoutingModule } from './list.routing';
     CommonModule,
     SharedModule,
     ListRoutingModule,
+    TranslateModule.forChild(),
   ],
   declarations: [ListComponent],
 })

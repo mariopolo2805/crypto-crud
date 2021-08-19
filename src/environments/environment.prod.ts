@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api.coincap.io/v2',
+  api: 'http://localhost:3000'
 };

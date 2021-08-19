@@ -11,5 +11,11 @@
   },
   "404": {
     "MESSAGE": "¡Vaya! Esta página no existe 😵"
+  },
+  "LIST": {
+    "TITLE": "Listado de Criptomonedas"
+  },
+  "DETAIL": {
+    "TITLE": "Detalle de Criptomoneda"
   }
 }

@@ -21,6 +21,7 @@ export class ApiService {
   }
 
   private formatErrors(error: unknown): Observable<never> {
+    // TODO: tratamiento de errores con snackbar
     return throwError((error as { error: unknown }).error);
   }
 
@@ -34,27 +35,27 @@ export class ApiService {
   }
 
   get(path: string, params: HttpParams = new HttpParams(), apiUrl ?: string): Observable<any> {
-    const url = apiUrl ? `${apiUrl}${path}` : `${environment.apiUrl}${path}`;
+    const url = apiUrl ? `${apiUrl}${path}` : `${environment.api}${path}`;
     return this.http.get(url, { params, headers: this.headers }).pipe(catchError(this.formatErrors));
   }
 
   put(path: string, body: unknown = { }, apiUrl ?: string): Observable<any> {
-    const url = apiUrl ? `${apiUrl}${path}` : `${environment.apiUrl}${path}`;
+    const url = apiUrl ? `${apiUrl}${path}` : `${environment.api}${path}`;
     return this.http.put(url, JSON.stringify(body), { headers: this.headers }).pipe(catchError(this.formatErrors));
   }
 
   patch(path: string, body: unknown = { }, apiUrl ?: string): Observable<any> {
-    const url = apiUrl ? `${apiUrl}${path}` : `${environment.apiUrl}${path}`;
+    const url = apiUrl ? `${apiUrl}${path}` : `${environment.api}${path}`;
     return this.http.patch(url, JSON.stringify(body), { headers: this.headers }).pipe(catchError(this.formatErrors));
   }
 
   post(path: string, body: unknown = { }, apiUrl ?: string): Observable<any> {
-    const url = apiUrl ? `${apiUrl}${path}` : `${environment.apiUrl}${path}`;
+    const url = apiUrl ? `${apiUrl}${path}` : `${environment.api}${path}`;
     return this.http.post(url, JSON.stringify(body), { headers: this.headers }).pipe(catchError(this.formatErrors));
   }
 
   delete(path: string, body: unknown = { }, apiUrl ?: string): Observable<any> {
-    const url = apiUrl ? `${apiUrl}${path}` : `${environment.apiUrl}${path}`;
+    const url = apiUrl ? `${apiUrl}${path}` : `${environment.api}${path}`;
     return this.http.request('delete', url, { body, headers: this.headers }).pipe(catchError(this.formatErrors));
   }
 }

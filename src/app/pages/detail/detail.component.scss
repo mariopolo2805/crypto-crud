@@ -1,1 +1,21 @@
-//
+@import "colors";
+
+.crypto-detail {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+
+  &__card-info {
+    color: $crypto-primary-color;
+
+    &-value {
+      &--positive {
+        color: green;
+      }
+
+      &--negative {
+        color: red;
+      }
+    }
+  }
+}

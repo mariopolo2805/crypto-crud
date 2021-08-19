@@ -1,12 +1,17 @@
-/* ---- Models ---- */
+/* ---- API Models ---- */
 export interface CryptoItemListApiResponse {
   data: CryptoItemApiResponse[];
   timestamp: number;
 }
 
+export interface CryptoDetailApiResponse {
+  data: CryptoItemApiResponse;
+  timestamp: number;
+}
+
 export interface CryptoItemApiResponse {
   changePercent24Hr: string;
-  explorer: string | null;
+  explorer?: string | null;
   id: string;
   marketCapUsd: string;
   maxSupply: string | null;
@@ -19,9 +24,24 @@ export interface CryptoItemApiResponse {
   vwap24Hr: string | null;
 }
 
+export interface CryptoImageApiResponse {
+  hits: { webformatURL: string }[];
+}
+
+/* ---- APP Models ---- */
 export interface CryptoItemModel {
   id: string;
   name: string;
   symbol: string;
   price: string;
+}
+
+export interface CryptoDetailModel {
+  id: string;
+  rank: string;
+  name: string;
+  symbol: string;
+  price: string;
+  marketCap: string;
+  changePercent: number;
 }

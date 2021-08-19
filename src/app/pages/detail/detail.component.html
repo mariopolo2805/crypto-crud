@@ -1,3 +1,30 @@
-<p>
-  detail works!
-</p>
+<crypto-loader *ngIf="isLoading"></crypto-loader>
+
+<div class="crypto-detail" *ngIf="!isLoading">
+  <h3 class="text-center">{{ "DETAIL.TITLE" | translate }}</h3>
+
+  <mat-card class="crypto-detail__card">
+    <mat-card-header>
+      <mat-card-title>{{cryptoData?.name}} - {{cryptoData?.symbol}}</mat-card-title>
+      <mat-card-subtitle>#{{cryptoData?.rank}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{cryptoImage}}" alt="Crypto image">
+    <mat-card-content>
+      <p>
+        <label class="crypto-detail__card-info">Price: </label>
+        <strong class="crypto-detail__card-info-value">{{ cryptoData?.price | currency }}</strong>
+      </p>
+      <p>
+        <label class="crypto-detail__card-info">Market Capitalization (24h): </label>
+        <strong class="crypto-detail__card-info-value">{{ cryptoData?.marketCap | currency }}</strong>
+      </p>
+      <p>
+        <label class="crypto-detail__card-info">Change Percent (24h): </label>
+        <strong  class="crypto-detail__card-info-value" [ngClass]="{'crypto-detail__card-info-value--positive': cryptoData.changePercent > 0, 'crypto-detail__card-info-value--negative': cryptoData.changePercent < 0}">{{ cryptoData?.changePercent | number }}%</strong>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="accent">View historic</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
