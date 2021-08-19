@@ -24,13 +24,16 @@ Node `v14.15.1` and NPM `6.14.8` on MacOS BigSur `11.4`.
 - Changelog Generator
 - Version Expose
 - Normalize CSS
+- fontawesome
 - i18n
 - Images from pixabay api
+- Exchange usd-eur from exchangeratesapi api
 - Node Express Backend Server
+- ngx-charts
 
 ### Frontend
 
-To run Crypto App in localhost, follow next steps:
+To run Crypto App in `localhost:4200`, follow next steps:
 - `npm i`
 - `npm start`
 
@@ -43,5 +46,6 @@ To retrieve data from API's is mandatory to run Express Node Server in `/backend
 - `npm start`
 
 This server avoid CORS problems in Frontend app. It works with next API's:
-- [DATA API](https://docs.coincap.io/)
-- [IMAGES API](https://pixabay.com/api/docs/)
+- DATA API: [docs.coincap.io](https://docs.coincap.io/)
+- IMAGES API: [pixabay.com](https://pixabay.com/api/docs/)
+- EXCHANGE API: [exchangeratesapi.io](https://exchangeratesapi.io/documentation/)
