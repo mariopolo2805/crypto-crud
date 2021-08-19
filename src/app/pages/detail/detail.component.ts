@@ -33,8 +33,10 @@ export class DetailComponent implements OnInit, OnDestroy {
     this.subscriptions.push(forkJoin([
       this.cryptoService.getCryptoDetail(id),
       this.cryptoService.getCryptoImage(id),
-    ]).subscribe(([cryptoDetailModel, image]) => {
+      this.cryptoService.getUsdEurChangeRatio(),
+    ]).subscribe(([cryptoDetailModel, image, usdEurChangeRatio]) => {
       this.cryptoData = cryptoDetailModel;
+      this.cryptoData.priceEur = `${parseFloat(this.cryptoData.price) / usdEurChangeRatio}`;
       this.cryptoImage = image;
       this.isLoading = false;
     },

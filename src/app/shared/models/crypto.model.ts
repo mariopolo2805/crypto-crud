@@ -28,6 +28,13 @@ export interface CryptoImageApiResponse {
   hits: { webformatURL: string }[];
 }
 
+export interface CryptoUsdEurChangeRatioApiResponse {
+  rates: {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    USD: number;
+  };
+}
+
 /* ---- APP Models ---- */
 export interface CryptoItemModel {
   id: string;
@@ -42,6 +49,7 @@ export interface CryptoDetailModel {
   name: string;
   symbol: string;
   price: string;
+  priceEur?: string;
   marketCap: string;
   changePercent: number;
 }

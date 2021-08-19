@@ -87,6 +87,28 @@ const getRandomImage = (req, res) => {
     });
 }
 
+let exchangeInfo = null;
+app.get('/usd-eur-change', (req, res) => {
+  if (exchangeInfo) {
+    return res.send(exchangeInfo);
+  }
+  fetch('http://api.exchangeratesapi.io/v1/latest?access_key=eb5b98d5f001ed2c1ddf34dbf274b276&symbols=USD,AUD,CAD,PLN,MXN&format=1')
+    .then(response => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        res.status(response.status).send(response);
+      }
+    })
+    .then(data => {
+      exchangeInfo = data;
+      res.send(data);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).send(err);
+    });
+});
 
 app.listen(3000, () => {
   console.log('Server running in http://localhost:3000');

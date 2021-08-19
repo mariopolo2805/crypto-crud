@@ -9,6 +9,7 @@ import {
   CryptoItemApiResponse,
   CryptoItemListApiResponse,
   CryptoItemModel,
+  CryptoUsdEurChangeRatioApiResponse,
 } from '@shared/models/crypto.model';
 
 @Injectable()
@@ -45,7 +46,14 @@ export class CryptoService {
 
   getCryptoImage(id: string): Observable<string> {
     return this.apiService.get(`/image/${id}`).pipe(map((response: CryptoImageApiResponse) =>
-      response.hits[Math.floor(Math.random() * response.hits.length)]?.webformatURL
+      response?.hits[Math.floor(Math.random() * response.hits.length)]?.webformatURL
+    ));
+  }
+
+  // usd-eur-change
+  getUsdEurChangeRatio(): Observable<number> {
+    return this.apiService.get('/usd-eur-change').pipe(map((response: CryptoUsdEurChangeRatioApiResponse) =>
+      response?.rates?.USD
     ));
   }
 }

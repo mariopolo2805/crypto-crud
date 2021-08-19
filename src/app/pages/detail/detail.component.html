@@ -13,8 +13,12 @@
     <img mat-card-image src="{{cryptoImage}}" alt="Crypto image">
     <mat-card-content>
       <p>
-        <label class="crypto-detail__card-info">Price: </label>
+        <label class="crypto-detail__card-info">Price (USD): </label>
         <strong class="crypto-detail__card-info-value">{{ cryptoData.price | currency }}</strong>
+      </p>
+      <p>
+        <label class="crypto-detail__card-info">Price (EUR): </label>
+        <strong class="crypto-detail__card-info-value">{{ cryptoData.priceEur | currency: 'EUR' }}</strong>
       </p>
       <p>
         <label class="crypto-detail__card-info">Market Capitalization (24h): </label>
