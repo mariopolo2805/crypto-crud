@@ -31,4 +31,8 @@ body {
   crypto-not-found {
     max-width: initial !important; /* stylelint-disable-line declaration-no-important */
   }
+
+  .ngx-charts-outer {
+    margin: 0 auto;
+  }
 }

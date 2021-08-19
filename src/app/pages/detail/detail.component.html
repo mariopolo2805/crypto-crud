@@ -18,7 +18,7 @@
       </p>
       <p>
         <label class="crypto-detail__card-info">Price (EUR): </label>
-        <strong class="crypto-detail__card-info-value">{{ cryptoData.priceEur | currency: 'EUR' }}</strong>
+        <strong class="crypto-detail__card-info-value">{{ cryptoData.priceEur | currency:'EUR':'symbol':'4.2-2':'es' }}</strong>
       </p>
       <p>
         <label class="crypto-detail__card-info">Market Capitalization (24h): </label>
@@ -38,7 +38,27 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="accent">View historic</button>
+      <button mat-raised-button color="accent" (click)="hideHistoric = !hideHistoric">
+        <span *ngIf="!hideHistoric">Hide</span>
+        <span *ngIf="hideHistoric">Show</span>
+        <span> historic</span>
+      </button>
     </mat-card-actions>
   </mat-card>
+
+  <div class="crypto-detail__chart" (window:resize)="onResize()" [hidden]="hideHistoric">
+    <ngx-charts-line-chart
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="multi"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxis]="true"
+      [yAxis]="true"
+      [xAxisLabel]="'Time'"
+      [yAxisLabel]="'Price (USD)'"
+      [timeline]="true"
+      [autoScale]="true"
+    ></ngx-charts-line-chart>
+  </div>
 </div>
