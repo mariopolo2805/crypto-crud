@@ -5,6 +5,9 @@
     "HOME": "Inicio",
     "LIST": "Listado"
   },
+  "GENERAL": {
+    "ERROR-DATA": "Hubo un error al recuperar los datos, recargue la página más tarde"
+  },
   "HOME": {
     "WELCOME": "¡Bienvenido a Crypto App!",
     "BY": "por "

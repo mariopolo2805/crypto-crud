@@ -5,6 +5,9 @@
     "HOME": "Home",
     "LIST": "List"
   },
+  "GENERAL": {
+    "ERROR-DATA": "An error happened when recover data, reload window later"
+  },
   "HOME": {
     "WELCOME": "Welcome to Crypto App!",
     "BY": "by "

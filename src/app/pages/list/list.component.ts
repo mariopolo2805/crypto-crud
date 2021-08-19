@@ -12,7 +12,7 @@ export class ListComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
   isLoading = false;
-  cryptoList: CryptoItemModel[] = [];
+  cryptoList: CryptoItemModel[] | null = null;
 
   constructor(private cryptoService: CryptoService) { }
 
@@ -31,9 +31,8 @@ export class ListComponent implements OnInit, OnDestroy {
         this.cryptoList = data;
         this.isLoading = false;
       },
-      (error: any) => {
-        // eslint-disable-next-line no-console
-        console.error(error);
+      () => {
+        this.cryptoList = null;
         this.isLoading = false;
       }
     ));

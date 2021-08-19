@@ -15,7 +15,6 @@ app.get('/list', (req, res) => {
       }
     })
     .then(data => {
-      console.log(data);
       res.send(data);
     })
     .catch(err => {
@@ -34,7 +33,6 @@ app.get('/detail/:id', (req, res) => {
       }
     })
     .then(data => {
-      console.log(data);
       res.send(data);
     })
     .catch(err => {

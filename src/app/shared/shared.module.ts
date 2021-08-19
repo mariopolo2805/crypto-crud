@@ -7,6 +7,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TranslateModule } from '@ngx-translate/core';
 import { CryptoLoaderComponent } from './components/loader/loader.component';
@@ -20,6 +21,7 @@ const matModules = [
   MatSidenavModule,
   MatDividerModule,
   MatCardModule,
+  MatSnackBarModule,
 ];
 
 const cryptoComponents = [

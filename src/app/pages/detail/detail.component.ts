@@ -14,8 +14,8 @@ export class DetailComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
   isLoading = true;
-  cryptoData!: CryptoDetailModel;
-  cryptoImage!: string;
+  cryptoData!: CryptoDetailModel | null;
+  cryptoImage!: string | null;
 
   constructor(private activatedRoute: ActivatedRoute, private cryptoService: CryptoService) { }
 
@@ -38,10 +38,10 @@ export class DetailComponent implements OnInit, OnDestroy {
       this.cryptoImage = image;
       this.isLoading = false;
     },
-    (error: any) => {
-      // eslint-disable-next-line no-console
-      console.error(error);
+    () => {
       this.isLoading = false;
+      this.cryptoData = null;
+      this.cryptoImage = null;
     }));
   }
 }

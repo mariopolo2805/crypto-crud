@@ -17,3 +17,12 @@ $crypto-warn-color: mat-color($crypto-warn-palette);
 /* Custom Colors */
 $crypto-golden-color: #EEB501;
 $crypto-silver-color: #C0C0C0;
+
+/* Helper Color Classes */
+.primary-color {
+  color: $crypto-primary-color !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.accent-color {
+  color: $crypto-accent-color !important; /* stylelint-disable-line declaration-no-important */
+}

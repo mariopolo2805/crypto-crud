@@ -9,6 +9,7 @@ import { CryptoTranslateModule } from './translate/translate.module';
 const ngModules = [
   BrowserAnimationsModule,
   HttpClientModule,
+
 ];
 
 @NgModule({
