@@ -8,14 +8,14 @@
     <mat-divider></mat-divider>
     <div class="spacer"></div>
     <div class="i18n">
-      <img class="i18n__flag" src="assets/images/es.png" alt="Spanish" (click)="toggleLanguage('es')">
-      <img class="i18n__flag" src="assets/images/en.png" alt="English" (click)="toggleLanguage('en')">
+      <img id="flag-es" class="i18n__flag" src="assets/images/es.png" alt="Spanish" (click)="toggleLanguage('es')">
+      <img id="flag-en" class="i18n__flag" src="assets/images/en.png" alt="English" (click)="toggleLanguage('en')">
     </div>
   </mat-drawer>
 
   <div>
     <mat-toolbar>
-      <button mat-icon-button aria-label="Show/hide sidenav drawer" (click)="drawer.toggle()">
+      <button id="menu-btn" mat-icon-button aria-label="Show/hide sidenav drawer" (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
       <span>{{ "CRYPTO.TITLE" | translate }}</span>

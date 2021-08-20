@@ -1,6 +1,6 @@
 <crypto-loader *ngIf="isLoading"></crypto-loader>
 
-<div class="crypto-detail" *ngIf="!isLoading">
+<div id="crypto-detail" class="crypto-detail" *ngIf="!isLoading">
   <h3 class="text-center">{{ "DETAIL.TITLE" | translate }}</h3>
 
   <p class="text-center accent-color" *ngIf="!cryptoData || !cryptoImage">{{ "GENERAL.ERROR-DATA" | translate }}</p>
@@ -39,8 +39,8 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="accent" (click)="hideHistory = !hideHistory">
-        <span *ngIf="!hideHistory">{{ "GENERAL.HIDE" | translate }}</span>
-        <span *ngIf="hideHistory">{{ "GENERAL.SHOW" | translate }}</span>
+        <span id="hide-btn" *ngIf="!hideHistory">{{ "GENERAL.HIDE" | translate }}</span>
+        <span id="show-btn" *ngIf="hideHistory">{{ "GENERAL.SHOW" | translate }}</span>
         <span> {{ "DETAIL.HISTORY" | translate }}</span>
       </button>
     </mat-card-actions>

@@ -1,6 +1,6 @@
 <crypto-loader *ngIf="isLoading"></crypto-loader>
 
-<div *ngIf="!isLoading">
+<div id="crypto-list" *ngIf="!isLoading">
   <h2 class="crypto-title">{{ "LIST.TITLE" | translate }}</h2>
 
   <p class="text-center accent-color" *ngIf="!cryptoList">{{ "GENERAL.ERROR-DATA" | translate }}</p>
