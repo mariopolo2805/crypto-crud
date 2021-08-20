@@ -5,6 +5,12 @@ import { Subscription } from 'rxjs/internal/Subscription';
 import { CryptoDetailModel } from '@shared/models/crypto.model';
 import { CryptoService } from '@shared/services/crypto.service';
 
+/* Sizes to line chart */
+const PADDING = 40;
+const WIDTH = 600;
+const HEIGH = 400;
+const HEIGH_MOBILE = 300;
+
 @Component({
   selector: 'crypto-detail',
   templateUrl: './detail.component.html',
@@ -18,7 +24,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   cryptoImage!: string | null;
 
   hideHistory = false;
-  view: [number, number] = [600, 400];
+  view: [number, number] = [WIDTH, HEIGH];
   colorScheme = {
     domain: ['#EEB501'],
   };
@@ -27,7 +33,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   constructor(private activatedRoute: ActivatedRoute, private cryptoService: CryptoService) { }
 
   ngOnInit(): void {
-    this.view = (window.innerWidth >= 640) ? [600, 400] : [window.innerWidth - 40, 300];
+    this.view = (window.innerWidth >= WIDTH + PADDING) ? [WIDTH, HEIGH] : [window.innerWidth - PADDING, HEIGH_MOBILE];
     this.activatedRoute.params.subscribe(params => {
       this.getCryptoInfo(params.id);
     });
@@ -38,7 +44,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   }
 
   onResize(): void {
-    this.view = (window.innerWidth >= 640) ? [600, 400] : [window.innerWidth - 40, 300];
+    this.view = (window.innerWidth >= WIDTH + PADDING) ? [WIDTH, HEIGH] : [window.innerWidth - PADDING, HEIGH_MOBILE];
   }
 
   getCryptoInfo(id: string): void {
