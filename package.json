@@ -6,7 +6,7 @@
   "engines": {
     "node": ">=12"
   },
-  "version": "0.0.1",
+  "version": "0.1.0-snapshot.0",
   "scripts": {
     "ng": "ng",
     "clean": "rimraf dist && rimraf coverage",
@@ -22,6 +22,7 @@
     "lint:fix": "eslint --color --fix -c .eslintrc.js --ext .ts ./src/app",
     "stylelint": "stylelint 'src/**/*.scss' --syntax scss -f verbose",
     "stylelint:fix": "stylelint 'src/**/*.scss' --syntax scss -f verbose --fix",
+    "e2e": "ng e2e",
     "snapshot": "npm run build && node ./scripts/snapshot.js",
     "version:snapshot": "npm run version && git add package.json package-lock.json src/version.js CHANGELOG.md && git commit -m 'snapshot: update version' -n",
     "release": "node ./scripts/release.js",
@@ -51,13 +52,20 @@
   ],
   "dependencies": {
     "@angular/animations": "~11.2.11",
+    "@angular/cdk": "^11.2.13",
     "@angular/common": "~11.2.11",
     "@angular/compiler": "~11.2.11",
     "@angular/core": "~11.2.11",
     "@angular/forms": "~11.2.11",
+    "@angular/material": "^11.2.13",
     "@angular/platform-browser": "~11.2.11",
     "@angular/platform-browser-dynamic": "~11.2.11",
     "@angular/router": "~11.2.11",
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@ngx-translate/core": "^12.1.2",
+    "@ngx-translate/http-loader": "^4.0.0",
+    "@swimlane/ngx-charts": "^18.0.1",
+    "normalize.css": "^8.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
@@ -71,6 +79,7 @@
     "@angular-eslint/template-parser": "0.4.0-beta.2",
     "@angular/cli": "~11.2.10",
     "@angular/compiler-cli": "~11.2.11",
+    "@briebug/cypress-schematic": "^5.0.1",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-angular": "^12.1.1",
     "@commitlint/config-conventional": "^13.1.0",
@@ -80,6 +89,7 @@
     "@typescript-eslint/eslint-plugin-tslint": "^4.29.1",
     "@typescript-eslint/parser": "^4.29.1",
     "codelyzer": "^6.0.0",
+    "cypress": "8.2.0",
     "eslint": "^7.6.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsdoc": "^30.6.2",

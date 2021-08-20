@@ -1,0 +1,31 @@
+{
+  "CRYPTO": {
+    "TITLE": "CRYPTO APP",
+    "SECTIONS": "Sections",
+    "HOME": "Home",
+    "LIST": "List"
+  },
+  "GENERAL": {
+    "ERROR-DATA": "An error happened when recover data, reload window later",
+    "HIDE": "Hide",
+    "SHOW": "Show"
+  },
+  "HOME": {
+    "WELCOME": "Welcome to Crypto App!",
+    "BY": "by "
+  },
+  "404": {
+    "MESSAGE": "¡Uops! Page not found 😵"
+  },
+  "LIST": {
+    "TITLE": "Crypto List"
+  },
+  "DETAIL": {
+    "TITLE": "Crypto Detail",
+    "PRICE": "Price",
+    "MARKETCAP": "Market Capitalization",
+    "CHANGEPERCENT": "Change Percent",
+    "HISTORY": "history",
+    "TIME": "Time"
+  }
+}

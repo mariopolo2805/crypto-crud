@@ -1,0 +1,46 @@
+@import "colors";
+
+.sidenav {
+  padding: 20px;
+
+  .menu-options-links-title {
+    padding-bottom: 6px;
+
+    border-bottom: 2px solid $crypto-primary-color;
+  }
+
+  .menu-options-links-option {
+    margin: 10px 0;
+
+    color: $crypto-primary-color;
+
+    text-decoration: none;
+  }
+
+  .spacer {
+    flex-grow: 1;
+  }
+
+  .i18n {
+    display: flex;
+    justify-content: center;
+
+    .i18n__flag {
+      height: 14px;
+      margin: 0 10px;
+
+      cursor: pointer;
+    }
+  }
+}
+
+.main {
+  display: flex;
+
+  flex: 1 0 auto;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+
+  background-color: $crypto-primary-light-color;
+}

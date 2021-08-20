@@ -1,0 +1,31 @@
+{
+  "CRYPTO": {
+    "TITLE": "CRYPTO APP",
+    "SECTIONS": "Secciones",
+    "HOME": "Inicio",
+    "LIST": "Listado"
+  },
+  "GENERAL": {
+    "ERROR-DATA": "Hubo un error al recuperar los datos, recargue la página más tarde",
+    "HIDE": "Ocultar",
+    "SHOW": "Ver"
+  },
+  "HOME": {
+    "WELCOME": "¡Bienvenido a Crypto App!",
+    "BY": "por "
+  },
+  "404": {
+    "MESSAGE": "¡Vaya! Esta página no existe 😵"
+  },
+  "LIST": {
+    "TITLE": "Listado de Criptomonedas"
+  },
+  "DETAIL": {
+    "TITLE": "Detalle de Criptomoneda",
+    "PRICE": "Precio",
+    "MARKETCAP": "Capitalización de mercado",
+    "CHANGEPERCENT": "Porcentaje de cambio",
+    "HISTORY": "histórico",
+    "TIME": "Tiempo"
+  }
+}

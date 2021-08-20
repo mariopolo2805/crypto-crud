@@ -15,6 +15,7 @@ module.exports = {
     "node_modules",
     "scripts",
     "**/*.spec.ts",
+    "**/tests/*",
     "src/main.ts",
     "src/test.ts",
     "src/polyfills.ts",
@@ -268,22 +269,7 @@ module.exports = {
             "position": "before"
           },
           {
-            "pattern": "primeng/**",
-            "group": "external",
-            "position": "before"
-          },
-          {
-            "pattern": "ftcomun/**",
-            "group": "external",
-            "position": "after"
-          },
-          {
             "pattern": "@core/**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "@modules/**",
             "group": "internal",
             "position": "before"
           },

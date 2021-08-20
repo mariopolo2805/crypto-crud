@@ -1,0 +1,28 @@
+<mat-drawer-container class="layout-container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <h4 class="menu-options-links-title">{{ "CRYPTO.SECTIONS" | translate }}</h4>
+    <mat-divider></mat-divider>
+    <a class="menu-options-links-option" routerLink="/">{{ "CRYPTO.HOME" | translate }}</a>
+    <mat-divider></mat-divider>
+    <a class="menu-options-links-option" routerLink="/list">{{ "CRYPTO.LIST" | translate }}</a>
+    <mat-divider></mat-divider>
+    <div class="spacer"></div>
+    <div class="i18n">
+      <img id="flag-es" class="i18n__flag" src="assets/images/es.png" alt="Spanish" (click)="toggleLanguage('es')">
+      <img id="flag-en" class="i18n__flag" src="assets/images/en.png" alt="English" (click)="toggleLanguage('en')">
+    </div>
+  </mat-drawer>
+
+  <div>
+    <mat-toolbar>
+      <button id="menu-btn" mat-icon-button aria-label="Show/hide sidenav drawer" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>{{ "CRYPTO.TITLE" | translate }}</span>
+    </mat-toolbar>
+  </div>
+
+  <main class="main">
+    <router-outlet class="layout-container__router"></router-outlet>
+  </main>
+</mat-drawer-container>

@@ -1,0 +1,38 @@
+@import "colors";
+
+/* ---- Layout ---- */
+body {
+  .layout-container__router + * {
+    flex: 1 0 auto;
+    max-width: 960px; // TODO:
+  }
+
+  .mat-drawer-container {
+    height: 100%;
+
+    & .mat-drawer-content {
+      display: flex !important; /* stylelint-disable-line declaration-no-important */
+      flex-direction: column;
+    }
+
+    & .mat-drawer-inner-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .main > * {
+    position: relative;
+
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  crypto-not-found {
+    max-width: initial !important; /* stylelint-disable-line declaration-no-important */
+  }
+
+  .ngx-charts-outer {
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,64 @@
+<crypto-loader *ngIf="isLoading"></crypto-loader>
+
+<div id="crypto-detail" class="crypto-detail" *ngIf="!isLoading">
+  <h3 class="text-center">{{ "DETAIL.TITLE" | translate }}</h3>
+
+  <p class="text-center accent-color" *ngIf="!cryptoData || !cryptoImage">{{ "GENERAL.ERROR-DATA" | translate }}</p>
+
+  <mat-card class="crypto-detail__card" *ngIf="cryptoData && cryptoImage">
+    <mat-card-header>
+      <mat-card-title>{{cryptoData.name}} - {{cryptoData.symbol}}</mat-card-title>
+      <mat-card-subtitle>#{{cryptoData.rank}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{cryptoImage}}" alt="Crypto image">
+    <mat-card-content>
+      <p>
+        <label class="crypto-detail__card-info">{{ "DETAIL.PRICE" | translate }} (USD): </label>
+        <strong class="crypto-detail__card-info-value">{{ cryptoData.price | currency }}</strong>
+      </p>
+      <p>
+        <label class="crypto-detail__card-info">{{ "DETAIL.PRICE" | translate }} (EUR): </label>
+        <strong class="crypto-detail__card-info-value">{{ cryptoData.priceEur | currency:'EUR':'symbol':undefined:'es' }}</strong>
+      </p>
+      <p>
+        <label class="crypto-detail__card-info">{{ "DETAIL.MARKETCAP" | translate }} (24h): </label>
+        <strong class="crypto-detail__card-info-value">{{ cryptoData.marketCap | currency }}</strong>
+      </p>
+      <p>
+        <label class="crypto-detail__card-info">{{ "DETAIL.CHANGEPERCENT" | translate }} (24h): </label>
+        <strong
+          class="crypto-detail__card-info-value"
+          [ngClass]="{
+            'crypto-detail__card-info-value--positive': cryptoData && cryptoData.changePercent > 0,
+            'crypto-detail__card-info-value--negative': cryptoData && cryptoData.changePercent < 0
+          }"
+        >
+          {{ cryptoData.changePercent | number }}%
+        </strong>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="accent" (click)="hideHistory = !hideHistory">
+        <span id="hide-btn" *ngIf="!hideHistory">{{ "GENERAL.HIDE" | translate }}</span>
+        <span id="show-btn" *ngIf="hideHistory">{{ "GENERAL.SHOW" | translate }}</span>
+        <span> {{ "DETAIL.HISTORY" | translate }}</span>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <div class="crypto-detail__chart" (window:resize)="onResize()" [hidden]="hideHistory" *ngIf="dataset">
+    <ngx-charts-line-chart
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="dataset"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxis]="true"
+      [yAxis]="true"
+      [xAxisLabel]="'Time'"
+      [yAxisLabel]="('DETAIL.PRICE' | translate) + '(USD)'"
+      [timeline]="true"
+      [autoScale]="true"
+    ></ngx-charts-line-chart>
+  </div>
+</div>

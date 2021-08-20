@@ -1,0 +1,17 @@
+<crypto-loader *ngIf="isLoading"></crypto-loader>
+
+<div id="crypto-list" *ngIf="!isLoading">
+  <h2 class="crypto-title">{{ "LIST.TITLE" | translate }}</h2>
+
+  <p class="text-center accent-color" *ngIf="!cryptoList">{{ "GENERAL.ERROR-DATA" | translate }}</p>
+
+  <ul class="crypto-list" *ngIf="cryptoList">
+    <li class="crypto-list__item" *ngFor="let crypto of cryptoList">
+      <div class="crypto-list__item-coin" routerLink="{{crypto.id}}">
+        <strong>{{crypto.symbol}}</strong>
+        <p>{{crypto.name}}</p>
+        <span>{{crypto.price | currency }}</span>
+      </div>
+    </li>
+  </ul>
+</div>
