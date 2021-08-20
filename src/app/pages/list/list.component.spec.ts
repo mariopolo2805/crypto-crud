@@ -1,8 +1,8 @@
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
+import { ApiService } from '@core/providers/api.service';
+import { TranslateModule, TranslateStore } from '@ngx-translate/core';
+import { CryptoService } from '@shared/services/crypto.service';
+import { mockApiService } from 'src/app/tests/mocks';
 import { ListComponent } from './list.component';
 
 describe('ListComponent', () => {
@@ -11,7 +11,17 @@ describe('ListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListComponent ]
+      imports: [
+        TranslateModule.forChild(),
+      ],
+      declarations: [
+        ListComponent,
+      ],
+      providers: [
+        CryptoService,
+        TranslateStore,
+        { provide: ApiService, useValue: mockApiService },
+      ]
     })
     .compileComponents();
   }));

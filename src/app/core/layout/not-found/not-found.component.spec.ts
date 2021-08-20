@@ -1,9 +1,6 @@
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
 import { NotFoundComponent } from './not-found.component';
+import { TranslateModule, TranslateStore } from '@ngx-translate/core';
 
 describe('NotFoundComponent', () => {
   let component: NotFoundComponent;
@@ -11,7 +8,15 @@ describe('NotFoundComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NotFoundComponent ]
+      imports: [
+        TranslateModule.forChild(),
+      ],
+      declarations: [
+        NotFoundComponent,
+      ],
+      providers: [
+        TranslateStore,
+      ]
     })
     .compileComponents();
   }));

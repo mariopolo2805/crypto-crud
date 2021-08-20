@@ -25,15 +25,6 @@ export class ApiService {
     return throwError(error);
   }
 
-  formatQueryParams(queryParamsModel: QueryParamsModel): string {
-    const getValue = (key: string): string => {
-      const value = (queryParamsModel as Record<string, string>)[key];
-      return Array.isArray(value) ? value.map(item => encodeURI((item as { id: string }).id)).join(',') : encodeURI(value);
-    };
-    const queryParamsStr = Object.keys(queryParamsModel).map(key => `${encodeURI(key)}=${getValue(key)}`).join('&');
-    return queryParamsStr ? `?${queryParamsStr}` : '';
-  }
-
   get(path: string, params: HttpParams = new HttpParams(), apiUrl ?: string): Observable<any> {
     const url = apiUrl ? `${apiUrl}${path}` : `${environment.api}${path}`;
     return this.http.get(url, { params, headers: this.headers }).pipe(catchError(this.formatErrors.bind(this)));

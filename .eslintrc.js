@@ -15,6 +15,7 @@ module.exports = {
     "node_modules",
     "scripts",
     "**/*.spec.ts",
+    "**/tests/*",
     "src/main.ts",
     "src/test.ts",
     "src/polyfills.ts",
