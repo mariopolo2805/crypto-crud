@@ -6,7 +6,7 @@
   "engines": {
     "node": ">=12"
   },
-  "version": "0.1.0-snapshot.0",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "clean": "rimraf dist && rimraf coverage",
