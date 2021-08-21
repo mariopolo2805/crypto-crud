@@ -1,4 +1,4 @@
 (function (window) {
   // VERSION
-  window.__version = '0.2.0-snapshot.0';
+  window.__version = '1.0.0';
 }(this));

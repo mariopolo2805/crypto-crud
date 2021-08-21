@@ -1,6 +1,6 @@
 ## 1.0.0.0 (2021-08-21)
 
-##### Bug Fixes
+##### 1.0.0 Fixes
 
 * **detail:**  fix i18n translation in detail line-chart ([242ace42](TODO/commit/242ace42ff36fc498a00bcf820a54675135e3fbc))
 
